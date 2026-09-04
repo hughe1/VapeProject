@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VapeEscape - Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .quiz-slide { display: none; }
+        .quiz-slide.active { display: block; }
+        .option-strip {
+            background: #334155; border: 2px solid #475569; padding: 12px;
+            border-radius: 12px; margin-top: 10px; font-size: 14px;
+            font-weight: 700; cursor: pointer; text-align: left; width: 100%;
+            font-family: inherit; color: #F8FAFC; transition: all 0.2s;
+        }
+        .option-strip:hover { border-color: var(--primary); background: #475569; }
+        .reveal-box { margin-top: 12px; padding: 12px; border-radius: 12px; font-size: 13px; font-weight: 600; display: none; }
+        .next-btn {
+            background: var(--primary); color: white; border: none; width: 100%;
+            padding: 14px; border-radius: 14px; font-weight: bold; font-size: 14px;
+            margin-top: 15px; cursor: pointer; display: none; font-family: inherit;
+        }
+        .final-score-box {
+            background: #065F46; border: 3px dashed #10B981;
+            padding: 24px; border-radius: 24px; text-align: center; margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container">
+        <header class="app-header">
+            <h1>Truth Scanner 🧪</h1>
+            <p>15 Quick School Fact Checks</p>
+        </header>
+
+        <main class="app-content">
+            <div id="quizContainer">
+                
+                <!-- Q1 -->
+                <div class="quiz-slide active" id="slide-1">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-purple">🧠</div>
+                        <div class="card-info">
+                            <span>Question 1 of 15</span>
+                            <h3>How does nicotine actually affect stress and mood in teenagers?</h3>
+                            <button class="option-strip" onclick="handleAns(1, 'wrong')">It helps you relax and permanently lowers your school stress.</button>
+                            <button class="option-strip" onclick="handleAns(1, 'correct')">It tricks your brain for a second, but actually makes anxiety worse later.</button>
+                            <div id="ans-1" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-slide" id="slide-2">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-red">🧪</div>
+                        <div class="card-info">
+                            <span>Question 2 of 15</span>
+                            <h3>What is created when e-liquid flavorings are boiled inside a vape?</h3>
+                            <button class="option-strip" onclick="handleAns(2, 'correct')">The heat turns the sweet flavors into nasty chemical gases that poison lungs and cause cancer.</button>
+                            <button class="option-strip" onclick="handleAns(2, 'wrong')">The flavorings turn into safe, pure water steam with fruit extracts.</button>
+                            <div id="ans-2" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-slide" id="slide-3">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-blue">🚬</div>
+                        <div class="card-info">
+                            <span>Question 3 of 15</span>
+                            <h3>What does tobacco cigarette tar do inside your chest?</h3>
+                            <button class="option-strip" onclick="handleAns(3, 'wrong')">It shadows your throat for a bit but washes away completely when you drink something.</button>
+                            <button class="option-strip" onclick="handleAns(3, 'correct')">It sticks to your airways like thick black glue and traps harmful smoke particles.</button>
+                            <div id="ans-3" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- question 4 -->
+                <div class="quiz-slide" id="slide-4">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-green">💨</div>
+                        <div class="card-info">
+                            <span>Question 4 of 15</span>
+                            <h3>Is secondhand vape mist safe to breathe when someone blows it near you?</h3>
+                            <button class="option-strip" onclick="handleAns(4, 'correct')">No, it forces nearby people to inhale chemicals and leftover nicotine dust.</button>
+                            <button class="option-strip" onclick="handleAns(4, 'wrong')">Yes, because the mist is fully purified when the user holds it in their mouth.</button>
+                            <div id="ans-4" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-slide" id="slide-5">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-purple">🫁</div>
+                        <div class="card-info">
+                            <span>Question 5 of 15</span>
+                            <h3>What can chemical oil flavorings do to a person's breathing capacity?</h3>
+                            <button class="option-strip" onclick="handleAns(5, 'wrong')">Nothing, flavorings are completely harmless.</button>
+                            <button class="option-strip" onclick="handleAns(5, 'correct')">They can directly scar, block, and irritate the tiny air sacs deep in your lungs.</button>
+                            <div id="ans-5" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="quiz-slide" id="slide-6">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-red">💳</div>
+                        <div class="card-info">
+                            <span>Question 6 of 15</span>
+                            <h3>Why do vape companies make packages look like high-tech USB sticks or toys?</h3>
+                            <button class="option-strip" onclick="handleAns(6, 'correct')">To hide them from teachers and make them look cool to school students.</button>
+                            <button class="option-strip" onclick="handleAns(6, 'wrong')">To prevent small children from accidentally opening the battery compartments.</button>
+                            <div id="ans-6" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="quiz-slide" id="slide-7">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-blue">💔</div>
+                        <div class="card-info">
+                            <span>Question 7 of 15</span>
+                            <h3>What does heavy nicotine do to your heart and blood vessels?</h3>
+                            <button class="option-strip" onclick="handleAns(7, 'correct')">It squeezes your blood vessels, forcing your heart to beat dangerously hard.</button>
+                            <button class="option-strip" onclick="handleAns(7, 'wrong')">It opens up your arteries, giving your muscles clean athletic energy.</button>
+                            <div id="ans-7" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="quiz-slide" id="slide-8">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-green">🚫</div>
+                        <div class="card-info">
+                            <span>Question 8 of 15</span>
+                            <h3>Are vapes less addictive than traditional tobacco cigarettes?</h3>
+                            <button class="option-strip" onclick="handleAns(8, 'wrong')">Yes, because you can easily stop whenever you want.</button>
+                            <button class="option-strip" onclick="handleAns(8, 'correct')">No, many use extra-strong nicotine salts that lock an addiction in super fast.</button>
+                            <div id="ans-8" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Q9 -->
+                <div class="quiz-slide" id="slide-9">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-purple">💀</div>
+                        <div class="card-info">
+                            <span>Question 9 of 15</span>
+                            <h3>What else comes out of burning cigarettes besides basic smoke?</h3>
+                            <button class="option-strip" onclick="handleAns(9, 'correct')">Over 70 deadly poisons like bug spray chemicals, arsenic, and rat poison.</button>
+                            <button class="option-strip" onclick="handleAns(9, 'wrong')">Strong, organic plant ash that floats safely out of your chest.</button>
+                            <div id="ans-9" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="quiz-slide" id="slide-10">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-red">🏥</div>
+                        <div class="card-info">
+                            <span>Question 10 of 15</span>
+                            <h3>How fast can a school student become seriously hooked on nicotine?</h3>
+                            <button class="option-strip" onclick="handleAns(10, 'correct')">Within just a few days or weeks of casual use.</button>
+                            <button class="option-strip" onclick="handleAns(10, 'wrong')">It strictly takes years of heavy, daily smoking for a habit to stick.</button>
+                            <div id="ans-10" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="quiz-slide" id="slide-11">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-blue">🛢️</div>
+                        <div class="card-info">
+                            <span>Question 11 of 15</span>
+                            <h3>What flakes off the metal heating coils inside electronic vapes?</h3>
+                            <button class="option-strip" onclick="handleAns(11, 'correct')">Microscopic toxic metal shards of lead and nickel that get stuck in your lungs.</button>
+                            <button class="option-strip" onclick="handleAns(11, 'wrong')">Nothing, because the coils have a shield that keeps them clean forever.</button>
+                            <div id="ans-11" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="quiz-slide" id="slide-12">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-green">🏃🏽‍♂️</div>
+                        <div class="card-info">
+                            <span>Question 12 of 15</span>
+                            <h3>How does smoking or vaping change your running and sport fitness?</h3>
+                            <button class="option-strip" onclick="handleAns(12, 'wrong')">It makes zero difference to your stamina as long as you eat healthy food.</button>
+                            <button class="option-strip" onclick="handleAns(12, 'correct')">It cuts off fresh oxygen supply, ruining your stamina and making you tired fast.</button>
+                            <div id="ans-12" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="quiz-slide" id="slide-13">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-purple">🧴</div>
+                        <div class="card-info">
+                            <span>Question 13 of 15</span>
+                            <h3>What is the thick base liquid carrier used to make vape mist clouds?</h3>
+                            <button class="option-strip" onclick="handleAns(13, 'correct')">Industrial chemicals that are used to make theater fog machines look smoky.</button>
+                            <button class="option-strip" onclick="handleAns(13, 'wrong')">Clean, medical steam mixed with organic vitamins and natural spring water.</button>
+                            <div id="ans-13" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="quiz-slide" id="slide-14">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-red">🧬</div>
+                        <div class="card-info">
+                            <span>Question 14 of 15</span>
+                            <h3>What does tobacco cigarette smoke do to your body's cells?</h3>
+                            <button class="option-strip" onclick="handleAns(14, 'correct')">It damages your internal cell blueprints directly, leading to serious mutations.</button>
+                            <button class="option-strip" onclick="handleAns(14, 'wrong')">It cleans your cell layers by burning off bad germs and bacteria inside you.</button>
+                            <div id="ans-14" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="quiz-slide" id="slide-15">
+                    <div class="modern-menu-card" style="cursor: default;">
+                        <div class="card-banner-img bg-blue">🚨</div>
+                        <div class="card-info">
+                            <span>Question 15 of 15</span>
+                            <h3>How does early tobacco exposure impact your future freedom choices?</h3>
+                            <button class="option-strip" onclick="handleAns(15, 'correct')">It traps your brain's reward habits, making it much harder to quit later on.</button>
+                            <button class="option-strip" onclick="handleAns(15, 'wrong')">It builds up a defense shield so you can easily walk away whenever you want.</button>
+                            <div id="ans-15" class="reveal-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TERMINAL LURKING SCORE LOCKOUT PANEL -->
+            <div id="finishMenu" style="display:none;" class="final-score-box">
+                <h3 style="margin:0 0 10px 0; font-size:22px; color:#10B981;">Quiz Complete! 🏆</h3>
+                <p style="font-size:13px; margin:0 0 15px 0; color:#94A3B8; font-weight:700;">
+                    Your baseline terminal is now completely locked out. You cannot change your inputs anymore.
+                </p>
+                <div style="font-size:20px; font-weight:800; color:var(--primary);" id="displayFinalScore">Final Score: 0/15</div>
+            </div>
+
+            <button id="nextBtn" class="next-btn" onclick="nextQuestion()">Next Question ➡️</button>
+        </main>
+
+        <script>
+            let currentSlide = 1;
+            let score = 0;
+
+            function handleAns(id, type) {
+                // LOCK OPTIONS TO PREVENT RE-CLICKING
+                const currentSlideDiv = document.getElementById('slide-' + id);
+                const buttons = currentSlideDiv.getElementsByClassName('option-strip');
+                for(let btn of buttons) { btn.style.pointerEvents = "none"; }
+                
+                const box = document.getElementById('ans-' + id);
+                if(type === 'correct') {
+                    score++;
+                    box.style.background = "#065F46"; box.style.color = "#10B981";
+                    box.innerHTML = "✅ Fact Confirmed! Great choice.";
+                } else {
+                    box.className = "reveal-box danger-text-alert";
+                    box.innerHTML = "❌ TOXIC IMPACT DETECTED: This habit creates constant anxiety loops, targets fresh breathing capacity, and places heavy cell wear on your heart.";
+                }
+                box.style.display = "block";
+                document.getElementById("nextBtn").style.display = "block";
+            }
+
+            function nextQuestion() {
+                document.getElementById('slide-' + currentSlide).classList.remove('active');
+                currentSlide++;
+                
+                if(currentSlide <= 15) {
+                    document.getElementById('slide-' + currentSlide).classList.add('active');
+                    document.getElementById("nextBtn").style.display = "none";
+                } else {
+                    document.getElementById("quizContainer").style.display = "none";
+                    document.getElementById("nextBtn").style.display = "none";
+                    document.getElementById("displayFinalScore").innerText = "Final Score: " + score + " / 15";
+                    document.getElementById("finishMenu").style.display = "block";
+                }
+            }
+        </script>
+
+        <nav class="bottom-nav">
+            <a href="index.html"><span class="nav-icon">🏠</span>Home</a>
+            <a href="info.html"><span class="nav-icon">📄</span>Info</a>
+            <a href="facts.html" class="active"><span class="nav-icon">🧪</span>Quiz</a>
+            <a href="game.html"><span class="nav-icon">🎮</span>Game</a>
+            <a href="support.html"><span class="nav-icon">🆘</span>Support</a>
+        </nav>
+    </div>
+
+</body>
+</html>

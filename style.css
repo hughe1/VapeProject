@@ -1,0 +1,136 @@
+@import url('https://googleapis.com');
+
+:root {
+    --bg-screen: #F8FAFC;
+    --primary: #4F46E5;
+    --accent-red: #DC2626;
+    --accent-green: #10B981;
+    --text-dark: #0F172A;
+    --text-muted: #64748B;
+    --card-purple: #F3E8FF;
+    --card-blue: #E0F2FE;
+    --card-red: #FEE2E2;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #CBD5E1;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.phone-container {
+    width: 100%;
+    max-width: 430px;
+    height: 720px;
+    background: var(--bg-screen);
+    border-radius: 38px;
+    box-shadow: 0px 25px 50px -12px rgba(0,0,0,0.3);
+    border: 12px solid #0F172A;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.app-header {
+    background: #FFFFFF;
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 2px solid #E2E8F0;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-dark);
+}
+
+.app-header p {
+    margin: 4px 0 0 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.app-content {
+    padding: 16px;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 85px;
+}
+
+/* 🟥 HIGH-STAKES CRIMSON RED ALERTS */
+.danger-text-alert {
+    color: #FFFFFF;
+    background: var(--accent-red);
+    font-weight: 800;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: block;
+    border: 2px solid #991B1B;
+    line-height: 1.4;
+}
+
+.modern-menu-card {
+    background: #FFFFFF;
+    border-radius: 22px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.modern-menu-card:hover {
+    transform: scale(1.02);
+    border-color: var(--primary);
+    box-shadow: 0 15px 20px -5px rgba(79, 70, 229, 0.12);
+}
+
+.card-banner-img {
+    height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.bg-purple { background: linear-gradient(135deg, #C084FC, #E9D5FF); }
+.bg-blue { background: linear-gradient(135deg, #60A5FA, #BAE6FD); }
+.bg-red { background: linear-gradient(135deg, #F87171, #FECDD3); }
+.bg-green { background: linear-gradient(135deg, #34D399, #A7F3D0); }
+
+.card-info { padding: 14px; }
+.card-info span { font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--primary); letter-spacing: 0.5px; }
+.card-info h3 { margin: 4px 0 4px 0; font-size: 17px; font-weight: 700; color: var(--text-dark); }
+.card-info p { margin: 0; font-size: 13px; line-height: 1.45; color: #475569; }
+
+.bottom-nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    border-top: 2px solid #E2E8F0;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+.bottom-nav a { text-decoration: none; color: var(--text-muted); font-size: 11px; font-weight: 700; display: flex; flex-direction: column; align-items: center; }
+.bottom-nav a.active { color: var(--primary); }
+.nav-icon { font-size: 18px; margin-bottom: 2px; }
+a {
+    text-decoration: none !important;
+}
